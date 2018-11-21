@@ -1,3 +1,31 @@
-<p>
-  urn works!
-</p>
+<div class="container">
+
+  <div class="row mt-5">
+    <div class="col-12 col-md-8">
+      <h2>Candidatos</h2>
+      <ul class="list-group mt-3">
+        <li class="list-group-item" *ngFor="let candidate of candidates">
+          {{candidate.name}} - {{candidate.political_party.name}} - {{candidate.number}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <screen
+      class="col-10 offset-1 col-lg-7 offset-lg-0 row"
+      [role]="role"
+      [numpad]="numpad"
+      [candidate]="candidate">
+    </screen>
+    <numpad
+      class="col-10 offset-1 col-lg-5 offset-lg-0 mt-lg-0 mt-3"
+      [numbers]="role.numbers"
+      (getNumpadNumber)="numpadNumber($event)"
+      (eventResetVote)="resetVote()"
+      (eventSaveVote)="saveVote()"
+      >
+    </numpad>
+  </div>
+
+</div>
