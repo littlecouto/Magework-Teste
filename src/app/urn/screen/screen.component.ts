@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-screen',
+  selector: 'screen',
   templateUrl: './screen.component.html',
   styleUrls: ['./screen.component.sass']
 })
 export class ScreenComponent implements OnInit {
 
-  constructor() { }
+  @Input() role: {};
+  @Input() candidate: {};
+  @Input() numpad: {};
+
+  constructor() {
+  }
+
+  bindFieldNumber(index){
+    return this.numpad[index] || '';
+  }
 
   ngOnInit() {
+
   }
 
 }
